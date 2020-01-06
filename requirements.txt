@@ -1,0 +1,4 @@
+instabot==0.4.5
+Pillow==7.0.0
+python-dotenv==0.10.3
+requests==2.22.0
