@@ -135,3 +135,6 @@ unfollowed.txt
 whitelist.txt
 .vscode/launch.json
 .vscode/settings.json
+log/
+config/
+.vscode/
