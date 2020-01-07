@@ -5,6 +5,7 @@ from PIL import Image
 from instabot import Bot
 from fetch_hubble import fetch_huble_images_from_collection
 from fetch_spacex import fetch_spacex_last_launch
+from common_fun import get_filename_extension
 
 
 def crop_to_square(file_path):
@@ -26,8 +27,10 @@ def public_photo_to_insta(insta_bot, image_path):
 
 
 def public_photos(insta_bot, folder_name):
+    extention_list = ['.jpg', ',jpeg', '.png']
     for file_name in os.listdir(folder_name):
-        if file_name != '.DS_Store':
+        extention = get_filename_extension(file_name=file_name)
+        if extention in extention_list:
             file_path = os.path.join(folder_name, file_name)
             crop_to_square(file_path=file_path)
             public_photo_to_insta(insta_bot=insta_bot, image_path=file_path)
