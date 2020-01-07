@@ -1,5 +1,5 @@
 import requests
-from fetch_spacex import (
+from common_fun import (
     get_filename_extension, download_file
 )
 
@@ -28,4 +28,3 @@ def fetch_huble_images_from_collection(collection):
     image_ids = [image['id'] for image in response_data]
     for image_id in image_ids:
         fetch_huble_image(image_id=image_id)
-
