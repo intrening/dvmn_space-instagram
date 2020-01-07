@@ -7,8 +7,8 @@ def fetch_huble_image(image_id):
     huble_url = f'http://hubblesite.org/api/v3/image/{image_id}'
     response = requests.request(method='get', url=huble_url)
     response.raise_for_status()
-    json_data = response.json()
-    image_files = json_data['image_files']
+    response_data = response.json()
+    image_files = response_data['image_files']
     image_urls = ['http:' + image['file_url'] for image in image_files]
     if not image_urls:
         return False
@@ -24,8 +24,8 @@ def fetch_huble_images_from_collection(collection):
     url = f'http://hubblesite.org/api/v3/images/{collection}'
     response = requests.request(method='get', url=url)
     response.raise_for_status()
-    json_data = response.json()
-    image_ids = [image['id'] for image in json_data]
+    response_data = response.json()
+    image_ids = [image['id'] for image in response_data]
     for image_id in image_ids:
         fetch_huble_image(image_id=image_id)
 
