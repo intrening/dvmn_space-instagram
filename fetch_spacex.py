@@ -20,12 +20,14 @@ def fetch_spacex_last_launch():
     image_links = response_data['links']['flickr_images']
 
     for image_number, image_url in enumerate(image_links):
-        file_name = f'spacex{image_number}.{get_filename_extension(image_url)}'
+        file_name = f'spacex{image_number}{get_filename_extension(image_url)}'
         download_file(url=image_url, file_name=file_name)
 
 
 def get_filename_extension(file_name):
-    return file_name.split('.')[-1]
+    _, extension  = os.path.splitext(file_name)
+    return extension
+    
 
 
 if __name__ == "__main__":

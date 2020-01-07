@@ -15,7 +15,7 @@ def fetch_huble_image(image_id):
 
     last_image_url = image_urls[-1]
     file_extention = get_filename_extension(file_name=last_image_url)
-    file_name = f'huble_{image_id}.{file_extention}'
+    file_name = f'huble_{image_id}{file_extention}'
 
     download_file(url=last_image_url, file_name=file_name)
 
